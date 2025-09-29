@@ -1,0 +1,7 @@
+show=drun
+prompt=Search...
+allow-images=true
+lines=10
+columns=1
+term=alacritty
+

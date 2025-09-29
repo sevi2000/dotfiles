@@ -1,0 +1,6 @@
+{
+  "layer": "top",
+  "modules-left": ["workspaces", "window"],
+  "modules-center": ["clock"],
+  "modules-right": ["cpu", "memory", "network", "pulseaudio", "battery", "tray"]
+}
