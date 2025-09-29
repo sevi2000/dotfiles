@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 
 set -e
@@ -28,23 +29,19 @@ fi
 # --- Packages ---
 echo -e "${YELLOW}>>> Installing packages...${RESET}"
 yay -S --needed --noconfirm \
-    neovim python python-pip \
-    jdk-openjdk gradle \
-    nodejs npm yarn \
-    typescript angular-cli \
-    hyprland waybar wofi alacritty \
+    neovim \
+    jdk-openjdk \
+    dotnet-sdk \
+    texlive-core texlive-bin \
+    nodejs npm \
+    gcc \
+    hyprland aquamarine polkit brightnessctl pamixer playerctl xdg-desktop-portal-wlr hyprpaper hyprlock hypridle hyprpolkitagent \
     firefox discord \
-    bluez bluez-utils blueman \
-    pipewire pipewire-pulse pavucontrol \
-    texlive-most texlive-lang \
-    zathura zathura-pdf-mupdf \
-    mpv viu lf \
-    swappy grim slurp \
-    starship git stow
+    git stow
 
-# --- Enable Bluetooth ---
-echo -e "${YELLOW}>>> Enabling Bluetooth service...${RESET}"
-sudo systemctl enable --now bluetooth.service
+# --- Install global npm packages for React and Angular ---
+echo -e "${YELLOW}>>> Installing React and Angular CLIs...${RESET}"
+npm install -g create-react-app @angular/cli
 
 # --- Apply dotfiles with stow ---
 echo -e "${YELLOW}>>> Applying dotfiles with stow...${RESET}"
@@ -65,4 +62,3 @@ nvim --headless "+TSUpdateSync" +qa
 # --- Final Message ---
 echo -e "${GREEN}>>> Installation complete! 🎉${RESET}"
 echo -e "${CYAN}Reboot now to enjoy Hyprland with Catppuccin Mocha everywhere 🌙${RESET}"
-
